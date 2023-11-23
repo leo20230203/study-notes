@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>00_introduce</title>
+    <style>
+        myElem {
+            display: block;
+            background-color: #ddd;
+            padding: 50px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        - DOCTYPE, 用来声明HTML5，用法：<!DOCTYPE html>
+        - HTML5中默认的字符编码是UTF-8
+        - HTML5新特性：
+          - 新增八个块级语义元素，<header>, <footer>, <article>, <section>，<aside>, <nav>, <main>, <figure>
+          - 新的表单控件，比如数字、日期、时间、日历和滑块
+        - 向HTML添加新元素
+        - HTML5新的属性语法，HTML5允许四种不同的属性语法：
+          - Empty
+          - Unquoted
+          - Double-quoted
+          - Single-quoted
+    -->
+
+    <!-- 向HTML添加新元素 -->
+    <myElem>My first element</myElem>
+
+    <!-- HTML5四种属性语法 -->
+    <input type="text" value="ZhangSan" disabled>   <!-- Empty, disabled属性的属性值为空，等价于disabled="disabled" -->
+    <input type="text" value=ZhangSan>              <!-- Unquoted, value的属性值未加引号-->
+    <input type="text" value="ZhangSan">            <!-- Double-quoted -->
+    <input type="text" value='ZhangSan'>            <!-- Single-quoted -->
+</body>
+</html>
