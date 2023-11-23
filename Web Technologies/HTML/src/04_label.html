@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04_label</title>
+</head>
+<body>
+    <!--
+        将一个<label>和一个<input>元素相关联主要有如下两点：
+         -- 标签文本不仅与其相应的文本输入元素在视觉上相关联，程序中也是如此；
+         -- 你可以点击关联的标签来聚焦或激活这个输入元素，就像直接点击输入元素一样。这扩大了元素的可点击区域。
+        用法：
+         -- 将一个<label>和一个<input>元素匹配在一起，你需要给<input>一个id属性，而<label>需要一个for属性，其值和<input>的id一样：
+    -->
+    <div>
+        <label for="cheese">Do you like cheese?</label>
+        <input type="checkbox" name="cheese" id="cheese">
+    </div>
+
+    <div>
+        <label for="peas">Do you like peas?</label>
+        <input type="checkbox" name="peas" id="peas">
+    </div>
+
+    <!--
+        另外，你也可以将<input>直接放在<label>里，此时则可以省略for和id属性
+    -->
+    <label>Do you like peas?
+        <input type="checkbox" name="peas">
+    </label>
+</body>
+</html>
