@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06_盒模型_垂直布局</title>
+
+    <style>
+        .outer {
+            /*
+                当父元素未设置height时，默认情况下，父元素的高度会被内容（子元素）撑开
+            */
+            background-color: #bfa;
+        }
+        .inner {
+            width: 100px;
+            height: 200px;
+            background-color: yellow;
+        }
+
+        .box1 {
+            /*
+                当父元素设置了height时，如果子元素的height大小超过了父元素，则子元素会
+                从父元素中溢出，使用 overflow 属性来设置父元素如何处理溢出的子元素:
+                  - visible, 默认值，子元素会从父元素中溢出，在父元素外部的位置显示；
+                  - hidden， 溢出内容会被裁剪，不会显示；
+                  - scroll,  生成两个滚动条，通过滚动条来查看完整的内容；
+                  - auto,    根据需要生成滚动条；
+                附: width 场景与 height 类似。
+
+                overflow表示处理水平和垂直两个方向，与之对应的有overflow-x, overflow-y。
+            */
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            overflow: auto;
+        }
+        .box2 {
+            width: 400px;
+            height: 400px;
+            background-color: orange;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
