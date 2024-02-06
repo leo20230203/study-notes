@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_网页的布局</title>
+    <style>
+        /* 提取公共属性，统一设置 */
+        header, main, footer {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 设置头部 */
+        header {
+            /* width: 1000px; */
+            height: 150px;
+            background-color: silver;
+            /* 左右auto，使其居中 */
+            /* margin: 0 auto;  */
+        }
+
+        /* 设置主题 */
+        main {
+            /* width: 1000px; */
+            height: 500px;
+            background-color: #bfa;
+            /* margin: 0 auto; */
+            /* main块的上下设置一定间距 */
+            margin: 10px auto;
+        }
+
+        /* 提取公共属性 */
+        nav, article, aside {
+            height: 100%;
+            float: left;
+        }
+
+        /* 设置左侧的导航 */
+        nav {
+            width: 190px;
+            /* height: 100%; */
+            background-color: yellow;
+            /* float: left; */
+        }
+
+        /* 设置中间的内容 */
+        article {
+            width: 600px;
+            /* height: 100%; */
+            background-color: orange;
+            /* float: left; */
+            /* article块的左右设置一定间距 */
+            margin: 0 10px;
+        }
+
+        /* 设置右侧的内容 */
+        aside {
+            width: 190px;
+            /* height: 100%; */
+            background-color: pink;
+            /* float: left; */
+        }
+
+        /* 设置底部 */
+        footer {
+            /* width: 1000px; */
+            height: 150px;
+            background-color: tomato;
+            /* margin: 0 auto; */
+        }
+    </style>
+</head>
+<body>
+    <!-- 创建头部 -->
+    <header></header>
+    
+    <!-- 创建网页的主体 -->
+    <main>
+        <!-- 左侧导航 -->
+        <nav></nav>
+
+        <!-- 中间的内容 -->
+        <article></article>
+
+        <!-- 右边的边栏 -->
+        <aside></aside>
+    </main>
+
+    <!-- 网页的底部 -->
+    <footer></footer>
+</body>
+</html>
