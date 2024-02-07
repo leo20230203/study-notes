@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_BFC</title>
+    <style>
+        /* 
+            情形一：开启BFC的元素不会被浮动元素所覆盖 
+                   box2开启BFC，避免被box1浮动元素盖住
+        */
+        /* .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            float: left;
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            overflow: hidden;
+        } */
+
+        /* 
+            情形二：开启BFC的元素子元素和父元素的外边距不会重叠
+                   box3开启BFC，所以box4设置的上边距没有影响到父元素外边距
+        */
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            float: left;
+        }
+        .box4 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            margin-top: 100px;
+        }
+
+        /* 
+            情形三：开启BFC的元素可以包含浮动的子元素；(见03_高度塌陷的问题.html)
+        */
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <div class="box3">
+        <div class="box4"></div>
+    </div>
+</body>
+</html>
