@@ -1,0 +1,33 @@
+**Step1: A Basic Starting Point
+This step will provide an introduction to some of CMake's basic syntax, commands, and variables.
+
+1.Exercise 1: Building a Basic Project
+For simple projects like this, a CMakeLists.txt file with three commands is all that is required.
+Note: Although upper, lower, and mixed case commands are supported by CMake, lower case commands are preferred.
+-- And project's top most CMakeLists.txt must start by specifying a minimum CMake version using the cmake_minimum_required() command.
+-- To start a project, we use the project() command to set the project name.
+-- Finially, the add_executable() command tells CMake to create an executable using the specified source code files.
+
+Once TODO 1 through TODO 3 have been completed, we are ready to build and run our project!
+For example: (both in windows and linux)
+make directories build/windows and build/linux first.
+for windows:
+    -- cd build/windows
+    -- cmake ../../
+    -- cmake --build .
+for linux:
+    -- cd build/linux
+    -- cmake ../../
+    -- cmake --build .
+
+2.Exercise 2 - Specifying the C++ Standard
+Start with TODO 4 and complete through TODO 6.
+-- Adding some C++11 features to our project by replacing atof with std::stod in tutorial.cxx.
+-- Remove #include <cstdlib>.
+-- One way to enable support for a specific C++ standard in CMake is by using CMAKE_CXX_STANDARD variable and CMAKE_CXX_STANDARD_REQUIRED to True.
+
+3.Exervice 3 - Adding a Version Number and Configured Header File
+Sometimes it may be useful to have a variable that is define in your CMakelists.txt file also be available in your source code. In this case, we would like to print the project version. (set by project(Tutorial VERSION 1.0) in CMakelists.txt)
+-- We create an input file(TutorialConfig.h.in) with one or more variables to replace. These variables have special syntax which looks like @VAR@.
+-- Then, we use the configure_file() command to copy the input file to a given output file and replace these variables with the current value of VAR in the CMakelists.txt file.
+-- We use target_include_directories() to specify where the executable target should look for include files. (in this example, we need to includ TutorialConfig.h)
