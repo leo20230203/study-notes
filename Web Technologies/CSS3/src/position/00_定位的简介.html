@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00_定位的简介</title>
+    <style>
+        body {
+            font-size: 60px;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+
+            /* 
+                定位（position）
+                    -- 定位是一种更加高级的布局手段
+                    -- 通过定位可以将元素摆放到页面的任意位置
+                    -- 使用position属性来设置定位：
+                        -- static, 默认值，元素是静止的，没有开启定位；
+                        -- relative, 开启元素的相对定位；
+                        -- absolute, 开启元素的绝对定位；
+                        -- fixed，开启元素的固定定位；
+                        -- sticky，开启元素的粘滞定位；
+                    
+                    -- 相对定位：
+                        -- 当元素的position属性值设置为relative时，则开启了元素的相对定位
+                        -- 相对定位的特点：
+                            -- 元素开启相对定位以后，如果不设置偏移量元素不会发生任何变化；
+                            -- 相对定位是参照于元素在文档流中的位置进行定位的；
+                            -- 相对定位会提升元素的层级；
+                              （当box2上移与box1重叠或下移与box3重叠时，box2会出现在最上层）
+                            -- 相对定位不会使元素脱离文档流；
+                              （当box2上移之后，box3并没有上移，所以box2为脱离文档流）
+                            -- 相对定位不会改变元素的性质，块还是块，行内还是行内；
+
+                    -- 偏移量（offset）
+                        -- 当元素开启了定位以后，可以通过偏移量来设置元素的位置：
+                            -- top，定位元素和定位位置上边的距离
+                            -- bottom, 定位元素和定位位置下边的距离
+                            -- left, 定位元素和定位位置的左侧距离
+                            -- right, 定位元素和定位位置的右侧距离
+            */
+            position: relative; /* 开启定位*/
+            top: -200px;        /* 上移200px */
+            left: 200px;        /* 右移200px, 注：box2的移动未影响到box3的位置*/
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+</html>
