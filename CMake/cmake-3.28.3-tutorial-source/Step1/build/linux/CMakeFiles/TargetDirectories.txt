@@ -1,0 +1,3 @@
+/home/leo/workspace/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step1/build/linux/CMakeFiles/Tutorial.dir
+/home/leo/workspace/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step1/build/linux/CMakeFiles/edit_cache.dir
+/home/leo/workspace/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step1/build/linux/CMakeFiles/rebuild_cache.dir
