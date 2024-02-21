@@ -1,0 +1,34 @@
+**Step 2: Adding a Library
+In this step, we will learn how to create and use a library in our project.
+
+1.Exercise 1 - Creating a Library
+Start with TODO 1 and complete through TODO 6: 
+-- First, fill in the one line CMakeLists.txt in the MathFunctions subdirectory
+    Create a library target called MathFunctions with add_library(), the source files for the library are passed as an argument to add_library().
+
+-- Next, edit the top level CMakeLists.txt
+    -- Add an add_subdirectory() call in the top-level CMakeLists.txt file so that the library will get built.
+    -- Next, the new library target is linked to the executable target using target_link_libraries().
+    -- Finally, we need to specify the library's header file location. Modify target_include_directories() to add the MathFunctions subdirectory as an include directory.
+
+-- Finally, use the newly created MathFunctions library in tutorial.cxx
+    -- Include MathFunctions.h
+    -- Replace sqrt with the wrapper function mathfunctions::sqrt.
+
+2.Exercise 2 - Adding an Option
+Now let us add an option in the MathFunctions library to allow developers to select either the custom square root implementation or the built in standard implementation.
+Start with the resulting files from Exercise 1. Complete TODO 7 through TODO 14.
+-- First create a variable USE_MYMATH using the option() command in MathFunctions/CMakeLists.txt
+    -- Add an option() to MathFunctions/CMakeLists.txt with a default value of ON that can be changed by the user.
+    -- Create an if() statement which checks the value of USE_MYMATH. Inside the if() block, put the target_compile_definitions() command with the compile definition USE_MYMATH.
+
+-- Then, update MathFunctions.cxx to redirect compilation based on USE_MYMATH
+    -- In MathFunction.cxx, we make USE_MYMATH control which square root function is used.
+    -- Next, we need to include mysqrt.h if USE_MYMATH is defined.
+    -- Finally, we need to include cmath now that we are using std::sqrt.
+
+-- Lastly, prevent mysqrt.cxx from being compiled when USE_MYMATH is on by making it its own library inside of the USE_MYMATH block of MathFunctions/CMakeLists.txt.
+（将mysqrt.cxx的编译独立出来，单独编译成一个静态库。这样一来，当USE_MYMATH为OFF时，就无须编译mysqrt.cxx了）
+    -- First, from within USE_MYMATH create a library called SqrtLibrary that has sources mysqrt.cxx. (use add_library())
+    -- Next, we link SqrtLibrary onto MathFunctions when USE_MYMATH is enabled. (use target_link_libraries())
+    -- Finally, we can remove mysqrt.cxx from our MathFunctions library source list because it will be pulled in when SqrtLibrary is included.

@@ -1,0 +1,6 @@
+/home/leo/workspace/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step2/build/linux/CMakeFiles/Tutorial.dir
+/home/leo/workspace/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step2/build/linux/CMakeFiles/edit_cache.dir
+/home/leo/workspace/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step2/build/linux/CMakeFiles/rebuild_cache.dir
+/home/leo/workspace/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step2/build/linux/MathFunctions/CMakeFiles/MathFunctions.dir
+/home/leo/workspace/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step2/build/linux/MathFunctions/CMakeFiles/edit_cache.dir
+/home/leo/workspace/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step2/build/linux/MathFunctions/CMakeFiles/rebuild_cache.dir
