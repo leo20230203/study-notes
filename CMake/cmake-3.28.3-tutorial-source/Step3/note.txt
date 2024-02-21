@@ -1,0 +1,19 @@
+**Step 3: Adding Usage Requirements for a Library
+前言：在Step2中，当上层CMakeLists.txt想要链接下层CMakeLists.txt生成的库文件时，上层CMakeLists.txt需要做两件事情：
+    -- 使用target_include_directories()指定库文件依赖的源文件目录；
+    -- 使用target_link_libraries()链接库文件；
+而在大型项目中，手动指定库依赖的方法会很复杂并难以维护。所以，如果库文件可以自己指定它所依赖的源文件目录，调用者只需要链接库文件而不需要关心它所依赖的源文件目录，就会使得CMake项目更简介和易维护。
+
+1.Exercise 1 - Adding Usage Requirements for a Library
+We will let our library define its own usage requirements. In this case, MathFunctions will specify any needed include directories itself. Then, the consuming target Tutorial simply needs to link to MathFunctions and not worry about any additional include directories.
+-- First, add a call to target_include_directories() in MathFunctions/CMakeLists.
+    # INTERFACE means things that consumers require but the producer doesn't.
+    target_include_directories(MathFunctions INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+
+-- Then, update the call to target_include_directories() in the top-level CMakeLists.txt.
+
+2.Exercise 2 - Setting the C++ Standard with Interface Libraries
+In this exercise, we will refactor our code to use an INTERFACE library to specify the C++ standard. (通过所谓的接口库（Interface Libraries），我们可以一次为多个库设置属性。)
+We will complete TODO 4 through TODO 7:
+-- Editing top level CMakeLists.txt file. Construct an INTERFACE librart target called tutorial_compiler_flags and specify cxx_std_11 as a target compiler feature.
+-- Modify CMakeLists.txt and MathFunctions/CMakeLists.txt so that all targets have a target_link_libraries() call to tutorial_compiler_flags.

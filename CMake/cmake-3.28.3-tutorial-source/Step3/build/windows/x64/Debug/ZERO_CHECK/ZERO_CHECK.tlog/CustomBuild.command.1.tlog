@@ -1,0 +1,10 @@
+^E:\STUDY\STUDY-NOTES\CMAKE\CMAKE-3.28.3-TUTORIAL-SOURCE\STEP3\BUILD\WINDOWS\CMAKEFILES\C88907E1F9BD4FEF6120E3E10537BF9D\GENERATE.STAMP.RULE
+setlocal
+"D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step3 -BE:/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step3/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/Study/study-notes/CMake/cmake-3.28.3-tutorial-source/Step3/build/windows/Tutorial.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
