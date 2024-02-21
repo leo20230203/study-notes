@@ -1,0 +1,4 @@
+For linux:
+    -- cd build/linux
+    -- cmake ../../
+    -- cmake --build .
