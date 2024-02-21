@@ -1,0 +1,7 @@
+For linux:
+    -- USE_MYMATH disabled
+        -- cmake ../../ -DUSE_MYMATH=OFF
+        -- cmake --build .
+    -- USE_MYMATH enabled(default)
+        -- cmake ../../
+        -- cmake --build .
