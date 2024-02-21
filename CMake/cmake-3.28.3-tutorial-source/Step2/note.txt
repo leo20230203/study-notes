@@ -32,3 +32,11 @@ Start with the resulting files from Exercise 1. Complete TODO 7 through TODO 14.
     -- First, from within USE_MYMATH create a library called SqrtLibrary that has sources mysqrt.cxx. (use add_library())
     -- Next, we link SqrtLibrary onto MathFunctions when USE_MYMATH is enabled. (use target_link_libraries())
     -- Finally, we can remove mysqrt.cxx from our MathFunctions library source list because it will be pulled in when SqrtLibrary is included.
+    
+-- Compile and Build
+    -- USE_MYMATH disabled
+        -- cmake ../../ -DUSE_MYMATH=OFF
+        -- cmake --build .
+    -- USE_MYMATH enabled(default)
+        -- cmake ../../
+        -- cmake --build .
