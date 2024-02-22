@@ -1,0 +1,22 @@
+**Step 4: Adding Generator Expressions
+-- Generator expression are evaluated during build system generation to produce information specific to each build configuration.
+-- Generator expression may be used to enable conditional linking, conditional definitions used when compiling, conditional include directories and more.
+-- There are different types of generator expressions including Logical, Informational, and Output expressions.
+
+1.Exercise 1 - Adding Compiler Warning Flags with Generator Expression.
+Open the file Step4/CMakeLists.txt and complete TODO 1 through TODO 4.
+-- First, in the top level CMakeLists.txt file, we need to set cmake_minimum_required() to 3.15
+    (generator expression was introduced in CMake 3.15).
+    
+-- Next, we add the desired compiler warning flags that we want for our project.
+    # 设置逻辑变量gcc_like_cxx, 当编译单元的编译语言为CXX, 且编译器id与ARMClang,AppleClang,Clang,GNU,LCC中
+    # 任何一个条目匹配时，gcc_like_cxx为1(true), 否则为0(false)
+    set(gcc_like_cxx "$<COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang,GNU,LCC>")
+    # 设置逻辑变量msvc_cxx, 当编译单元的编译语言为CXX，且编译器id为MSVC时，msvc_cxx为1
+    set(msvc_cxx "$<COMPILE_LANG_AND_ID:CXX,MSVC>")
+注：COMPILE_LANG_AND_ID是generator expression的一种，详见：https://cmake-doc.readthedocs.io/zh-cn/latest/manual/cmake-generator-expressions.7.html
+
+-- Next, using our variables gcc_like_cxx and msvc_cxx, we can use another generator expression to apply the respective flags only when the variables are true.
+   (use target_compile_options())
+   
+-- Lastly, we only want these warning flags to be used during builds. Consumers of our installed project should not inherit our warning flags. (使用BUILD_INTERFACE, 也是一种generator expression的一种，详见：https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html)
