@@ -1,0 +1,13 @@
+**COMPILE
+    -- USE_MYMATH disabled
+        -- cmake ../../ -DUSE_MYMATH=OFF
+        -- cmake --build . --config Release
+    -- USE_MYMATH enabled(default)
+        -- cmake ../../
+        -- cmake --build . --config Release
+
+**TEST
+    -- ctest -C Release -VV
+        
+**INSTALL
+    -- cmake --install . --config Release
