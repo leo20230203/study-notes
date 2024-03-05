@@ -1,4 +1,6 @@
-For windows:
+**COMPILE
     -- cd build/windows
     -- cmake ../../
     -- cmake --build .
+    
+**INSTALL

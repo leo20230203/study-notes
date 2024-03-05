@@ -1,4 +1,6 @@
-For linux:
+**COMPILE
     -- cd build/linux
     -- cmake ../../
     -- cmake --build .
+    
+**INSTALL

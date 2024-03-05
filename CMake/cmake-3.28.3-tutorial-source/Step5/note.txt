@@ -1,0 +1,29 @@
+**Step 5: Installing and Testing
+1.Exercise 1 - Install Rules
+Often, it is not enough to only build an executable, it should also be installable. With CMake, we can specify install rules using the install() command.
+Complete TODO 1 through TODO 4.
+-- First, update MathFunctions/CMakeLists.txt to install the MathFunctions and tutorial_compile_flags libraries to the lib directory. In that same file, specify the install rules needed to install MathFunctions.h to the include directory.
+   (分别安装库文件和头文件到指定目录，如lib、include)
+
+-- Then, update the top level CMakeLists.txt to install the Tutorial executable to the bin directory.
+   (安装可执行文件到bin目录)
+
+-- Lastly, any header files should be installed to the include directory. (Remember that TutorialConfig.h is in the PROJECT_BINARY_DIR)
+   (配置头文件也要安装到include目录)
+
+2.Exercise 2 - Testing Support
+CTest offers a way to easily manage tests for your project. Tests can be added through add_test() command.
+(CTest可以为我们编译出来可执行程序，进行简单的单元测试。思考：CTest是如何判定某个测试是否通过？)
+
+In this exercise, complete TODO 5 through TODO 9.
+-- First, we need to enable testing. (use enable_testing() command).
+
+-- Then, add some simple tests.
+    -- Use add_test() command to create a test.
+    -- Use set_tests_properties() command to set test property to verify that the output of the test contains certain strings.
+       For example: 
+        set_tests_properties(Comp25 PROPERTIES PASS_REGULAR_EXPRESSION "25 is 5")
+        表示，当正则表达式 "25 is 5" 匹配上测试用例 Comp25 的输出结果时，表示此测试通过。
+        注：
+           (1)PASS_REGULAR_EXPRESSION: The output must match this regular expression for the test to pass.
+           (2)如果测试用例没有设置 PASS_REGULAR_EXPRESSION 属性，则测试用例return 0表示通过.
