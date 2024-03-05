@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_京东顶部导航条</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        /* 用于解决高度塌陷 */
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        body {
+            /* 设置字体 */
+            font: 12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+        }
+
+        /* 设置外部容器样式 */
+        .top-bar-wrapper {
+            /* 设置宽度 */
+            width: 100%;
+            /* 设置背景颜色 */
+            background-color: #E3E4E5;
+            height: 30px;
+            /* 设置行高，使文字垂直居中 */
+            line-height: 30px;
+            /* 设置下边框 */
+            border-bottom: 1px #ddd solid;
+        }
+
+        /* 设置内部容器样式 */
+        .top-bar {
+            /* 固定宽度 */
+            width: 1190px;
+            /* height为31，即30 + 1 (top-bar-wrapper.height + border-bottom) */
+            /* 设置水平居中 */
+            margin: 0 auto;
+        }
+
+        /* 设置字体样式 */
+        .top-bar a,
+        .top-bar span,
+        .top-bar i {
+            color: #999;
+            text-decoration: none;
+        }
+
+        /* 设置高亮 */
+        .top-bar a:hover,
+        .top-bar .highlight {
+            color: #f10215;
+        }
+
+        /* 设置location下的小图标 */
+        .location .fas {
+            font-size: 14px;
+            color: #f10215;
+        }
+
+        /* 设置城市列表 */
+        .location .city-list {
+            display: none;
+            width: 300px;
+            height: 436px;
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            /* 设置绝对定位，使其不占据页面位置 */
+            position: absolute;
+            top: 30px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 当鼠标移入location时，让city-list显示 */
+        .location:hover .city-list {
+            display: block;
+        }
+
+        /* 设置location的移入效果 */
+        .location:hover .current-city {
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            border-bottom: none;
+        }
+
+        /* 设置 left-bar */
+        .left-bar {
+            float: left;
+        }
+
+        /* 设置浮动 */
+        .location,
+        .switch-enterprise {
+            float: left;
+            margin: auto 6px;
+        }
+
+        /* 设置current-city */
+        .current-city {
+            padding: 0 10px;
+
+            border: 1px solid transparent;
+            border-bottom: none;
+
+            /* 相对定位提升元素层级，进而使border-bottom: none生效 */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 设置shortcut */
+        .shortcut {
+            float: right;
+        }
+
+        /* 设置分割线 */
+        .shortcut .line {
+            width: 1px;
+            height: 10px;
+            background-color: #c0bfbf;
+            margin: 10px 12px;
+        }
+
+        /* 设置向下箭头 */
+        .shortcut .fa-angle-down {
+            font-size: 10px;
+        }
+
+        /* 设置li */
+        .shortcut li  {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- 创建外围的容器 -->
+    <div class="top-bar-wrapper">
+        <!-- 创建内部容器 -->
+        <!-- 由于location和shortcut设置了浮动，脱离了文档流，进而导致无法撑其开包含块
+             top-bar的高度，进一步无法撑开top-bar的包含块top-bar-wrapper的高度，造成
+             所谓的高度塌陷问题。解决方案有两个：一是手动设置包含块的高度；二是使用
+             clearfix类，解决高度塌陷的问题。 -->
+        <div class="top-bar clearfix">
+            <!-- 左侧的菜单 -->
+            <div class="left-bar">
+                <div class="location">
+                    <div class="current-city">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="javascript:;">上海</a>
+                    </div>
+    
+                    <!-- 放置城市列表div -->
+                    <div class="city-list"></div>
+                </div>
+                <div class="switch-enterprise">
+                    <a href="javascript:;">切换至企业版</a>
+                </div>
+            </div>
+
+            <!-- 右侧的菜单 -->
+            <ul class="shortcut">
+                <li>
+                    <a href="javascript:;">你好，<span class="highlight">请登录</span></a>
+                    &nbsp;
+                    <a href="javascript:;">免费注册</a>
+                </li>
+
+                <!-- 分割线 -->
+                <li class="line"></li>
+                <li><a href="javascript:;">我的订单</a></li>
+
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的京东</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"></li>
+                <li>
+                    <a class="highlight" href="javascript:;">企业采购</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">商家服务</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">网站导航</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"></li>
+                <li><a href="javascript:;">手机京东</a></li>
+
+                <li class="line"></li>
+                <li><a href="javascript:;">网站无障碍</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
